@@ -1,0 +1,27 @@
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: lightsteelblue;
+}
+.selections {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+	justify-content: center;
+	flex: auto;
+	padding: 32px;
+}
+button {
+	padding: 2rem 3rem;
+	background-color: antiquewhite;
+	border: 2px solid white;
+	border-radius: 5px;
+}
+
+button:hover {
+	padding: 2rem 3rem;
+	background-color: beige;
+	border: 2px solid white;
+}

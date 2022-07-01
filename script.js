@@ -34,7 +34,7 @@ let playGame = (selectP, selectC, score) => {
 let score = 0
 let options = ['rock', 'paper', 'scissors']
 
-for (let i = 0; i < 5; i++) {
+while (true) {
 	let choice = prompt('pick: rock paper scissors')
 	score = playGame(choice, computerPlay(options), score)
 	console.log(score)
