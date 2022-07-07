@@ -39,3 +39,8 @@ while (true) {
 	score = playGame(choice, computerPlay(options), score)
 	console.log(score)
 }
+
+let rock = document.querySelector('button.rock')
+rock.addEventListener(
+	'click', () => {}
+)
