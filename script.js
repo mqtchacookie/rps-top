@@ -1,46 +1,52 @@
 let computerPlay = (list) => {
-	let move = list[Math.floor(Math.random() * list.length)]
+	let move = list[Math.floor(Math.random() * list.length)];
 	// console.log(`${move}`)
-	return move
-}
-let round = (pSelect, cSelect, roundNumber) => {
-	let lowerCase = pSelect.toLowerCase()
+	return move;
+};
+let round = (pSelect, cSelect) => {
+	let lowerCase = pSelect.toLowerCase();
 
 	if (lowerCase === cSelect) {
-		console.log('tie')
-		return 'tie'
+		console.log('tie');
+		return 'tie';
 	}
 	if (lowerCase === 'rock' && cSelect === 'scissors') {
-		console.log('win')
-		return 'win'
+		console.log('win');
+		return 'win';
 	}
 	if (lowerCase === 'paper' && cSelect === 'rock') {
-		console.log('win')
-		return 'win'
+		console.log('win');
+		return 'win';
 	}
 	if (lowerCase === 'scissors' && cSelect === 'paper') {
-		console.log('win')
-		return 'win'
+		console.log('win');
+		return 'win';
 	} else {
-		console.log('lose')
-		return 'lose'
+		console.log('lose');
+		return 'lose';
 	}
-}
-
+};
+// Check if round was a win
 let playGame = (selectP, selectC, score) => {
-	if (round(selectP, selectC) === 'win') return (score = score + 1)
-	return score
-}
-let score = 0
-let options = ['rock', 'paper', 'scissors']
+	if (round(selectP, selectC) === 'win') return (score = score + 1);
+	return score;
+};
+// Var declaration
+let score = 0;
+let options = ['rock', 'paper', 'scissors'];
 
-while (true) {
-	let choice = prompt('pick: rock paper scissors')
-	score = playGame(choice, computerPlay(options), score)
-	console.log(score)
-}
+// Button System
+let rock = document.querySelector('.rock');
+rock.addEventListener('click', () => {
+	console.log('rock');
+});
 
-let rock = document.querySelector('button.rock')
-rock.addEventListener(
-	'click', () => {}
-)
+let paper = document.querySelector('.paper');
+paper.addEventListener('click', () => {
+	console.log('paper');
+});
+
+let scissor = document.querySelector('.scissor');
+scissor.addEventListener('click', () => {
+	console.log('scissor');
+});
