@@ -30,31 +30,45 @@ let round = (pSelect, cSelect) => {
 	}
 };
 
-// Check if round was a win
-let playGame = (selectP, selectC, score) => {
-	if (round(selectP, selectC) === 'win') return (score = score + 1);
-	return score;
+// WIN/DRAW/LOSS RETURN
+let playGame = (selectP, selectC) => {
+	if (score === 5) {
+		return;
+	}
+	if (round(selectP, selectC) === 'win') {
+		score = score + 1;
+		console.log(score);
+		return;
+	}
+	console.log(score);
+	return;
 };
 
 // Var declaration
 let score = 0;
+let gameState = false;
 let options = ['rock', 'paper', 'scissors'];
-let player = '';
 
 // Button System
 let rock = document.querySelector('.rock');
 rock.addEventListener('click', () => {
-	playGame('rock', computerPlay(options), score);
+	playGame('rock', computerPlay(options));
 });
 
 let paper = document.querySelector('.paper');
 paper.addEventListener('click', () => {
-	playGame('paper', computerPlay(options), score);
+	playGame('paper', computerPlay(options));
 });
 
 let scissor = document.querySelector('.scissor');
 scissor.addEventListener('click', () => {
-	playGame('scissor', computerPlay(options), score);
+	playGame('scissor', computerPlay(options));
 });
 
-//
+// WIN ROUND ELEMENT
+let showWinRound = () => {
+	let winRound = document.createElement('div');
+	winRound.classList.add('winRound');
+};
+
+
