@@ -1,12 +1,18 @@
+// Var declaration
+let score = 0;
+let gameState = false;
+let options = ['rock', 'paper', 'scissors'];
+const content = document.querySelector('.content');
+
 // COMPUTER RNG
-let computerPlay = (list) => {
+const computerPlay = (list) => {
 	let move = list[Math.floor(Math.random() * list.length)];
 	// console.log(`${move}`)
 	return move;
 };
 
 // ROUND LOGIC
-let round = (pSelect, cSelect) => {
+const round = (pSelect, cSelect) => {
 	let lowerCase = pSelect.toLowerCase();
 
 	if (lowerCase === cSelect) {
@@ -31,44 +37,55 @@ let round = (pSelect, cSelect) => {
 };
 
 // WIN/DRAW/LOSS RETURN
-let playGame = (selectP, selectC) => {
+const playGame = (selectP, selectC) => {
 	if (score === 5) {
 		return;
 	}
 	if (round(selectP, selectC) === 'win') {
 		score = score + 1;
 		console.log(score);
+		showWinRound();
 		return;
 	}
+	showLoseRound();
 	console.log(score);
 	return;
 };
 
-// Var declaration
-let score = 0;
-let gameState = false;
-let options = ['rock', 'paper', 'scissors'];
-
 // Button System
-let rock = document.querySelector('.rock');
+const rock = document.querySelector('.rock');
 rock.addEventListener('click', () => {
 	playGame('rock', computerPlay(options));
 });
 
-let paper = document.querySelector('.paper');
+const paper = document.querySelector('.paper');
 paper.addEventListener('click', () => {
 	playGame('paper', computerPlay(options));
 });
 
-let scissor = document.querySelector('.scissor');
+const scissor = document.querySelector('.scissor');
 scissor.addEventListener('click', () => {
 	playGame('scissor', computerPlay(options));
 });
 
 // WIN ROUND ELEMENT
-let showWinRound = () => {
+const showWinRound = () => {
 	let winRound = document.createElement('div');
 	winRound.classList.add('winRound');
+	winRound.textContent = 'WIN';
+	content.append(winRound);
 };
 
+// DRAW ROUND ELEMENT
+const showDrawRound = () => {
+	let drawRound = document.createElement('div');
+	drawRound.classList.add('drawRound');
+	drawRound.textContent = 'DRAW';
+	content.append(drawRound);
+};
 
+// LOSE ROUND ELEMENT
+const showLoseRound = () => {
+	let loseRound = document.createElement('div');
+	loseRound.classList.add('loseRound');
+};
