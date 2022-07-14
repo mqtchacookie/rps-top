@@ -3,6 +3,8 @@ let score = 0;
 let gameState = false;
 let options = ['rock', 'paper', 'scissors'];
 const content = document.querySelector('.content');
+const selections = document.querySelector('.selections');
+const resultDisplay = document.querySelector('.result-display');
 
 // COMPUTER RNG
 const computerPlay = (list) => {
@@ -16,8 +18,8 @@ const round = (pSelect, cSelect) => {
 	let lowerCase = pSelect.toLowerCase();
 
 	if (lowerCase === cSelect) {
-		console.log('tie');
-		return 'tie';
+		console.log('draw');
+		return 'draw';
 	}
 	if (lowerCase === 'rock' && cSelect === 'scissors') {
 		console.log('win');
@@ -39,12 +41,18 @@ const round = (pSelect, cSelect) => {
 // WIN/DRAW/LOSS RETURN
 const playGame = (selectP, selectC) => {
 	if (score === 5) {
+		winGame();
 		return;
 	}
 	if (round(selectP, selectC) === 'win') {
 		score = score + 1;
 		console.log(score);
 		showWinRound();
+		return;
+	}
+	if (round(selectP, selectC) === 'draw') {
+		console.log(score);
+		showDrawRound();
 		return;
 	}
 	showLoseRound();
@@ -71,21 +79,33 @@ scissor.addEventListener('click', () => {
 // WIN ROUND ELEMENT
 const showWinRound = () => {
 	let winRound = document.createElement('div');
-	winRound.classList.add('winRound');
+	winRound.classList.add('win-round');
 	winRound.textContent = 'WIN';
-	content.append(winRound);
+	resultDisplay.append(winRound);
 };
 
 // DRAW ROUND ELEMENT
 const showDrawRound = () => {
 	let drawRound = document.createElement('div');
-	drawRound.classList.add('drawRound');
+	drawRound.classList.add('draw-round');
 	drawRound.textContent = 'DRAW';
-	content.append(drawRound);
+	resultDisplay.append(drawRound);
 };
 
 // LOSE ROUND ELEMENT
 const showLoseRound = () => {
 	let loseRound = document.createElement('div');
-	loseRound.classList.add('loseRound');
+	loseRound.classList.add('lose-round');
+	loseRound.textContent = 'LOSE';
+	resultDisplay.append(loseRound);
+};
+
+const winGame = () => {
+	let winGame = document.createElement('div');
+	winGame.classList.add('win-game');
+	winGame.textContent = 'WINNER';
+	winGame.setAttribute('style', 'color: aliceblue');
+	content.removeChild(selections);
+	content.removeChild(resultDisplay);
+	content.append(winGame);
 };

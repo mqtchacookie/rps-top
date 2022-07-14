@@ -31,10 +31,19 @@ button:hover {
 	background-color: beige;
 	border: 2px solid white;
 }
-.winRound {
+.win-round {
 	background-color: greenyellow;
 }
 
-.drawRound {
+.draw-round {
 	background-color: darkgray;
+}
+.lose-round {
+	background-color: tomato;
+}
+
+.win-game {
+	background-color: darkseagreen;
+	padding: 64px;
+	font-size: 100px;
 }
