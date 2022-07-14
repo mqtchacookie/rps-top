@@ -5,6 +5,12 @@ body {
 	justify-content: center;
 	background-color: lightsteelblue;
 }
+.content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
 .selections {
 	display: flex;
 	gap: 16px;
@@ -24,4 +30,20 @@ button:hover {
 	padding: 2rem 3rem;
 	background-color: beige;
 	border: 2px solid white;
+}
+.win-round {
+	background-color: greenyellow;
+}
+
+.draw-round {
+	background-color: darkgray;
+}
+.lose-round {
+	background-color: tomato;
+}
+
+.win-game {
+	background-color: darkseagreen;
+	padding: 64px;
+	font-size: 100px;
 }
